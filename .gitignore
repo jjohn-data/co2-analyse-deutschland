@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 
+# Excel temp files
+~$*.xlsx
+
 # Jupyter
 .ipynb_checkpoints/
 
