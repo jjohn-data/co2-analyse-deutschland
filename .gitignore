@@ -2,12 +2,12 @@
 __pycache__/
 *.pyc
 
-# Excel temp files
-~$*.xlsx
-
 # Jupyter
 .ipynb_checkpoints/
 
 # OS
 .DS_Store
 Thumbs.db
+
+# Excel temp / lock files
+~$*.xlsx
