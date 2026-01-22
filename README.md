@@ -1,4 +1,4 @@
-# 📊 Analyse der CO₂-Emissionen in Deutschland (1990–2024)
+# Analyse der CO₂-Emissionen in Deutschland (1990–2024)
 
 ## Ziel
 Ziel dieses Projekts ist die Analyse der langfristigen Entwicklung der CO₂-Emissionen in Deutschland sowie der Beitrag einzelner Wirtschaftssektoren.  
