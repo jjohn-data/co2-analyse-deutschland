@@ -44,6 +44,16 @@ Die Analyse basiert auf öffentlich zugänglichen Emissionsdaten des **Umweltbun
 
 ---
 
+## Visualisierungen
+
+### CO2 Trend Deutschland (1990 - 2024)
+![CO2 Trend Deutschland](visualisierungen/co2_trend_deutschland.png)
+
+### CO2 Emissionen Hauptsektoren
+![CO2 Hauptsektoren](visualisierungen/co2_emissionen_hauptsektoren.png)
+
+---
+
 ## Ergebnisse (Kurzfassung)
 
 - Die CO₂-Emissionen in Deutschland sind seit 1990 insgesamt deutlich gesunken.
