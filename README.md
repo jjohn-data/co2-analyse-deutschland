@@ -1,100 +1,115 @@
-# Analyse der CO₂-Emissionen in Deutschland (1990–2024)
+# Treibhausgasemissionen in Deutschland (1990–2024)
 
-## Ziel
-Ziel dieses Projekts ist die Analyse der langfristigen Entwicklung der CO₂-Emissionen in Deutschland sowie der Beitrag einzelner Wirtschaftssektoren.  
-Der Fokus liegt auf der Beantwortung zentraler Leitfragen zur Emissionsentwicklung, sektoralen Unterschieden und strukturellen Veränderungen.
+## Projektziel
 
----
+Dieses Projekt analysiert die langfristige Entwicklung der Treibhausgasemissionen in Deutschland und vergleicht die Beiträge der wichtigsten Sektoren gemäß Bundes-Klimaschutzgesetz (KSG).
+
+Im Mittelpunkt stehen Datenaufbereitung, Zeitreihenanalyse und eine nachvollziehbare Interpretation sektoraler Entwicklungen.
 
 ## Datenquelle
+
 Die Analyse basiert auf öffentlich zugänglichen Emissionsdaten des **Umweltbundesamtes (UBA)**.
 
 - Datensatz: *Emissionsübersichten nach Sektoren gemäß Bundes-Klimaschutzgesetz (KSG)*
 - Zeitraum: **1990–2024**
-- Format: Excel (Originaldaten), CSV (aufbereitet)
+- Originalformat: Excel
+- Einheit der Rohdaten: **Tausend Tonnen CO₂-Äquivalente (kt CO₂e)**
+- Einheit der aufbereiteten Analysedaten: **Millionen Tonnen CO₂-Äquivalente (Mt CO₂e)**
 
----
+> Hinweis: Die Daten beziehen sich auf Treibhausgasemissionen in CO₂-Äquivalenten und nicht ausschließlich auf CO₂.
+
+## Fragestellungen
+
+- Wie haben sich die Treibhausgasemissionen in Deutschland seit 1990 entwickelt?
+- Welche KSG-Sektoren tragen am stärksten zu den Emissionen bei?
+- Welche Sektoren zeigen die größten langfristigen Rückgänge?
+- Wo sind erkennbare Trendbrüche oder außergewöhnliche Jahre sichtbar?
 
 ## Methodik
 
-1. **Datenaufbereitung**
-   - Import der Rohdaten aus einer Excel-Datei
-   - Entfernung von Meta- und Summenspalten
-   - Umwandlung der Jahreswerte in ein Long-Format (`pandas.melt`)
-   - Export der bereinigten Daten als CSV
+### 1. Datenaufbereitung
 
-2. **Datenmodellierung**
-   - Trennung von Gesamtwerten (mit und ohne LULUCF)
-   - Fokus auf aggregierte Hauptsektoren gemäß KSG
-   - Ausschluss von detaillierten CRF-Unterkategorien zur besseren Vergleichbarkeit
+- Einlesen der offiziellen Excel-Rohdaten
+- Auswahl des relevanten Tabellenblatts
+- Entfernung von Meta- und Hilfsspalten
+- Bereinigung der Sektorbezeichnungen
+- Umwandlung der Jahreswerte vom Wide- ins Long-Format mit `pandas.melt`
+- Auswahl der Gesamtwerte und aggregierten KSG-Hauptsektoren
+- Umrechnung von **kt CO₂e** in **Mt CO₂e**
+- Export eines bereinigten CSV-Datensatzes
 
-3. **Analyse & Visualisierung**
-   - Zeitreihenanalyse der nationalen CO₂-Emissionen (ohne LULUCF)
-   - Vergleich der Emissionen nach Hauptsektoren
-   - Identifikation langfristiger Trends und möglicher Trendbrüche
+### 2. Analyse und Visualisierung
 
----
+- Entwicklung der nationalen Treibhausgasemissionen ohne LULUCF
+- Vergleich der KSG-Hauptsektoren über die Zeit
+- Untersuchung langfristiger Veränderungen und auffälliger Zeitpunkte
+- Visualisierung mit Matplotlib
 
-## Zentrale Fragestellungen
+## Ergebnisse – Kurzfassung
 
-- Wie haben sich die CO₂-Emissionen in Deutschland seit 1990 entwickelt?
-- Welche Wirtschaftssektoren sind die größten Emittenten?
-- Lassen sich Trendbrüche (z. B. Pandemie, Energiekrise) erkennen?
-- Welche Sektoren zeigen deutliche Fortschritte bei der Emissionsreduktion?
+Die Analyse zeigt einen deutlichen langfristigen Rückgang der deutschen Treibhausgasemissionen seit 1990.
 
----
+- Die Energiewirtschaft weist über den betrachteten Zeitraum hohe Emissionswerte auf, gleichzeitig aber auch starke absolute Rückgänge.
+- Der Verkehrssektor zeigt im Vergleich zu mehreren anderen Sektoren wesentlich geringere langfristige Reduktionen.
+- Für 2020 ist ein deutlicher Rückgang sichtbar. Die COVID-19-Pandemie ist ein plausibler Kontextfaktor, aus der deskriptiven Analyse allein lässt sich jedoch keine kausale Wirkung ableiten.
+- Auch ab 2022 sind weitere Veränderungen sichtbar. Aussagen über konkrete Ursachen wie Energiekrise oder Veränderungen im Energiemix benötigen zusätzliche externe Evidenz und werden daher nicht allein aus diesem Datensatz abgeleitet.
 
 ## Visualisierungen
 
-### CO2 Trend Deutschland (1990 - 2024)
-![CO2 Trend Deutschland](visualisierungen/co2_trend_deutschland.png)
+### Entwicklung der Treibhausgasemissionen in Deutschland
 
-### CO2 Emissionen Hauptsektoren
-![CO2 Hauptsektoren](visualisierungen/co2_emissionen_hauptsektoren.png)
+![THG Trend Deutschland](visualisierungen/co2_trend_deutschland.png)
 
----
+### Treibhausgasemissionen nach KSG-Hauptsektoren
 
-## Ergebnisse (Kurzfassung)
-
-- Die CO₂-Emissionen in Deutschland sind seit 1990 insgesamt deutlich gesunken.
-- Besonders starke Reduktionen sind ab den späten 2010er-Jahren sichtbar.
-- Die **Energiewirtschaft** ist der größte Emittent, zeigt jedoch zugleich die stärksten absoluten Emissionsrückgänge.
-- Der **Verkehrssektor** weist über Jahrzehnte hinweg kaum strukturelle Reduktionen auf.
-- Im Jahr **2020** ist ein deutlicher Emissionsrückgang im Zusammenhang mit der COVID-19-Pandemie erkennbar.
-- Weitere Rückgänge ab **2022** stehen im Kontext der Energiekrise und des veränderten Energiemixes.
-
----
-
-## Fazit
-
-Die Analyse zeigt, dass strukturelle Veränderungen – insbesondere in der Energiewirtschaft – einen erheblichen Einfluss auf die nationale Emissionsentwicklung haben.  
-Während in einzelnen Sektoren deutliche Fortschritte erzielt wurden, bestehen insbesondere im Verkehrssektor weiterhin erhebliche Herausforderungen.
-
----
+![THG Hauptsektoren](visualisierungen/co2_emissionen_hauptsektoren.png)
 
 ## Projektstruktur
 
-```
+```text
 co2-analyse-deutschland/
-│
 ├── daten/
 │   ├── original/
 │   │   └── Emissionsübersichten_KSG-Sektoren_1990–2024.xlsx
 │   └── aufbereitet/
-│       └── co2_emissionen_deutschland.csv
-│
+│       └── thg_emissionen_deutschland.csv
 ├── notebooks/
 │   ├── 01_datenaufbereitung.ipynb
 │   └── 02_analyse_und_visualisierung.ipynb
-│
 ├── visualisierungen/
-|   ├── co2_emissionen_hauptsektoren
+│   ├── co2_emissionen_hauptsektoren.png
 │   └── co2_trend_deutschland.png
-│
+├── requirements.txt
 └── README.md
 ```
 
----
+## Reproduzierbarkeit
 
-## Hinweise
-Dieses Projekt dient als Demonstration grundlegender Data-Analysis-Kompetenzen, einschließlich Datenaufbereitung, explorativer Analyse und verständlicher Ergebnisdarstellung.
+Die Notebooks verwenden relative Projektpfade und können entweder aus dem Repository-Root oder direkt aus dem Ordner `notebooks/` ausgeführt werden.
+
+### Installation
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Danach:
+
+1. `notebooks/01_datenaufbereitung.ipynb` ausführen
+2. `notebooks/02_analyse_und_visualisierung.ipynb` ausführen
+
+Das erste Notebook erzeugt den bereinigten Datensatz im Ordner `daten/aufbereitet/`.
+
+## Verwendete Technologien
+
+- Python
+- Pandas
+- Matplotlib
+- Jupyter Notebook
+
+## Limitationen
+
+- Die Analyse ist deskriptiv und erlaubt keine kausalen Schlussfolgerungen.
+- Auffällige zeitliche Veränderungen können mit externen Ereignissen zusammenfallen; mögliche Ursachen müssen mit zusätzlichen Quellen geprüft werden.
+- Die Analyse konzentriert sich auf aggregierte KSG-Hauptsektoren und nicht auf sämtliche CRF-Unterkategorien oder einzelne Treibhausgase.
+- Die Datenquelle kann nachträglich revidierte historische Werte enthalten.
